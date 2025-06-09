@@ -1,0 +1,56 @@
+version: 2
+
+models:
+  - name: fct_picking_efficiency
+    description: >
+      This fact table tracks the performance of warehouse pickers.
+      It includes metrics like total picks, average pick time, number of issues,
+      and how many of their orders were delayed.
+
+    columns:
+      - name: picker_id
+        description: Unique identifier of the picker
+        tests: [not_null]
+
+      - name: total_picks
+        description: Total number of orders picked by the picker
+
+      - name: avg_pick_time_minutes
+        description: Average time (in minutes) taken per pick
+
+      - name: picks_with_issues
+        description: Count of picks where an issue_flag was raised
+
+      - name: delayed_orders
+        description: Number of orders picked by this picker that were also delayed
+
+  - name: dim_items
+    description: >
+      Item dimension table that includes metadata about products like
+      name, category, and unit price.
+
+    columns:
+      - name: item_id
+        description: Unique identifier for each item
+        tests: [unique, not_null]
+
+      - name: item_name
+        description: Name of the item
+
+      - name: category
+        description: Item category (e.g., Electronics, Groceries, etc.)
+
+      - name: unit_price
+        description: Price per unit of the item
+
+  - name: dim_delay_reason
+    description: >
+      Aggregated view of delay reasons across all orders with issues.
+
+    columns:
+      - name: reason_category
+        description: Categorical description of the delay cause
+        tests: [not_null]
+
+      - name: delay_count
+        description: Total number of times this reason appeared

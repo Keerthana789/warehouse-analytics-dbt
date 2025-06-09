@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: mfc_warehouse_raw         
+    database: dbt-bigquery-setup-461218 
+    schema: mfc_warehouse_raw    
+    tables:
+      - name: raw_orders
+      - name: raw_pick_logs
+      - name: raw_inventory
+      - name: raw_delay_reasons
+      - name: raw_item_catalog
