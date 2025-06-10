@@ -65,6 +65,11 @@ Summarized count of issue types across all delayed orders.
 
 ---
 
+![DAG](snapshots/dag.png)
+
+---
+
+
 ## 📊 Example Use Cases
 
 - Identify bottlenecks in MFC picker workflows
@@ -84,7 +89,7 @@ Summarized count of issue types across all delayed orders.
 dbt debug
 dbt run
 dbt test
-dbt docs generate && dbt docs serve
+dbt docs generate
 ```
 
 ---
