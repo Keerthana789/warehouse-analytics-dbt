@@ -54,3 +54,28 @@ models:
 
       - name: delay_count
         description: Total number of times this reason appeared
+
+  - name: dim_inventory_summary
+    description: >
+      Dimension table that combines inventory stock levels with enriched item metadata,
+      including location, category, and pricing information.
+
+    columns:
+      - name: item_id
+        description: Unique identifier of the item
+        tests: [not_null]
+
+      - name: item_name
+        description: Name of the item
+
+      - name: category
+        description: Item category such as Electronics, Groceries, etc.
+
+      - name: location
+        description: Warehouse location where the item is stored
+
+      - name: current_stock
+        description: Available quantity of the item at the location
+
+      - name: unit_price
+        description: Price of the item per unit
